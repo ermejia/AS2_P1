@@ -6,6 +6,8 @@ import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -13,23 +15,31 @@ import java.sql.*;
  */
 public class CursoDao {
     public CursosEntity getSqlSelect(String consultas) {
-
+        CursosEntity curso = new CursosEntity();
+        List<String> id = new ArrayList<>();
+        List<String> name = new ArrayList<>();
+        List<String> descripcion = new ArrayList<>();
         try{
             CursosEntity cursos= new CursosEntity();
             Conexion newconnection=new Conexion();
             Connection conection =newconnection.conectar();
             Statement consulta = conection.createStatement();
-            ResultSet resultado = consulta.executeQuery ("SELECT id_student,name,surname FROM t2_student LIMIT 40");
+            ResultSet resultado = consulta.executeQuery ("SELECT id_course,name,description FROM t2_course LIMIT 40");
 
             while (resultado.next()){
-                //guardarenentity
+                id.add(resultado.getString("id_course"));
+                name.add(resultado.getString("name"));
+                descripcion.add(String.valueOf(resultado.getString("description")));
             }
             conection.close();
         }
         catch (Exception e){
             e.printStackTrace();
-            ;
+
         }
-        return null;//retornarentity;
+        curso.setIdCurso(id);
+        curso.setName(name);
+        curso.setDescripcion(descripcion);
+        return curso;
     }
 }
