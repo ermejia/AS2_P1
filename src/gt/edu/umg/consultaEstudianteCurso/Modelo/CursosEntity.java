@@ -15,5 +15,19 @@ public class CursosEntity {
         this.idCurso = idCurso;
     }
 
+    public List<String> getName() {
+        return name;
+    }
 
+    public void setName(List<String> name) {
+        this.name = name;
+    }
+
+    public List<String> getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(List<String> descripcion) {
+        this.descripcion = descripcion;
+    }
 }
