@@ -5,8 +5,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-import java.util.*;
-
 public class Conexion{
 
     private Connection conexion = null;
@@ -18,7 +16,7 @@ public class Conexion{
     public Connection conectar() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conexion = DriverManager.getConnection("jdbc:mysql://192.185.4.65:3306/jbarilla_ingsoftware", "jbarilla_estudia", "2Ui!OssHDQGv");
+            conexion = DriverManager.getConnection("jdbc:mysql://192.185.4.65:3306/jbarilla_ingsoftware?serverTimezone=UTC", "jbarilla_estudia", "2Ui!OssHDQGv");
         } catch (Exception e) {
         }
         return conexion;
@@ -33,5 +31,4 @@ public class Conexion{
         }
 
     }
-
 }
