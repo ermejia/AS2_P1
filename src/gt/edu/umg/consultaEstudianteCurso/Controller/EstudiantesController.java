@@ -13,8 +13,8 @@ public class EstudiantesController {
     public String formularioEstudiantes(Model model) {
         EstudianteEntity student=new EstudianteEntity();
         EstudiantesDAO build=new EstudiantesDAO();
-        student= build.getSqlSelect("hola");
+        student= build.getSqlSelect();
         model.addAttribute("dataes", student);
-        return "cursos";
+        return "estudiantes";
     }
 }
