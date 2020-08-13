@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Estudiantes</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Data Tables</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="https://github.com/ermejia/AS2_P1">P1ASSII</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/estudiantes">Students List<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/cursos">Courses List</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="table-responsive">
+            <table  id="myTablee" class="table table-hover">
+                    <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Surname</th>
+                        <th>Email</th>
+                        <th>Birthdate</th>
+                        <th>Carnet</th>
+                        <th>Phone1</th>
+                        <th>Phone2</th>
+                        <th>Address1</th>
+                        <th>Address2</th>
+
+                    </tr>
+                    </thead>
+                    <tbody >
+                    <tr th:each="customer, iter : ${dataes.getId_student()}">
+                        <td th:text="${dataes.getId_student().get(iter.index)}"></td>
+                        <td th:text="${dataes.getName().get(iter.index)}"></td>
+                        <td th:text="${dataes.getSurname().get(iter.index)}"></td>
+                        <td th:text="${dataes.getEmail().get(iter.index)}"></td>
+                        <td th:text="${dataes.getBirthdate().get(iter.index)}"></td>
+                        <td th:text="${dataes.getStudent_carnet().get(iter.index)}"></td>
+                        <td th:text="${dataes.getPhone1().get(iter.index)}"></td>
+                        <td th:text="${dataes.getPhone2().get(iter.index)}"></td>
+                        <td th:text="${dataes.getAddress1().get(iter.index)}"></td>
+                        <td th:text="${dataes.getAddress2().get(iter.index)}"></td>
+
+
+
+                    </tr>
+                    </tbody>
+                </table>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready( function () {
+        $('#myTablee').DataTable();
+    } );
+</script>
+</body>
+</html>
+
