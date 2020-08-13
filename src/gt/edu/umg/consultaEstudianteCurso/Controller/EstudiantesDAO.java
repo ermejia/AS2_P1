@@ -8,7 +8,7 @@ import java.sql.Statement;
 
 public class EstudiantesDAO {
 
-    public EstudianteEntity getSqlSelect(String consultas) {
+    public EstudianteEntity getSqlSelect() {
         EstudianteEntity student =new EstudianteEntity();
         List<String> listid = new ArrayList<>();
         List<String> listname = new ArrayList<>();
