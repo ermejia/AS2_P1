@@ -2,10 +2,9 @@ package gt.edu.umg.consultaEstudianteCurso.Controller;
 
 import gt.edu.umg.consultaEstudianteCurso.Modelo.CursosEntity;
 
-import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.*;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +13,7 @@ import java.util.List;
  * 
  */
 public class CursoDao {
-    public CursosEntity getSqlSelect(String consultas) {
+    public CursosEntity getSqlSelect() {
         CursosEntity curso = new CursosEntity();
         List<String> id = new ArrayList<>();
         List<String> name = new ArrayList<>();
@@ -24,7 +23,7 @@ public class CursoDao {
             Conexion newconnection=new Conexion();
             Connection conection =newconnection.conectar();
             Statement consulta = conection.createStatement();
-            ResultSet resultado = consulta.executeQuery ("SELECT id_course,name,description FROM t2_course LIMIT 40");
+            ResultSet resultado = consulta.executeQuery ("SELECT id_course,name,description FROM t2_course LIMIT 1000");
 
             while (resultado.next()){
                 id.add(resultado.getString("id_course"));
