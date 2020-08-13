@@ -12,7 +12,7 @@ public class CursosController {
     public String formularioPeticiones(Model model) {
         CursosEntity order = new CursosEntity();
         CursoDao build = new CursoDao();
-        order = build.getSqlSelect("hola");
+        order = build.getSqlSelect();
         model.addAttribute("data", order);
         return "cursos";
     }
