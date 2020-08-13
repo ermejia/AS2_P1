@@ -25,7 +25,7 @@ public class EstudiantesDAO {
             Conexion newconnection=new Conexion();
             Connection conection =newconnection.conectar();
             Statement consulta = conection.createStatement();
-            ResultSet resultado = consulta.executeQuery ("SELECT id_student,name,surname,email,birthdate,student_id,phone1,phone2,address1,address2 FROM t2_student LIMIT 40");
+            ResultSet resultado = consulta.executeQuery ("SELECT id_student,name,surname,email,birthdate,student_id,phone1,phone2,address1,address2 FROM t2_student LIMIT 1000");
 
             while (resultado.next()){
                 listid.add(String.valueOf(resultado.getInt("id_student")));
